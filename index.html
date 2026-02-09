@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Maps API -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMi0gswcwsBVe1hfB-1f4SRPPh6cFIYOk&libraries=places"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-coffee"></i> Cafe Finder</h1>
+            <p class="subtitle">Discover the best coffee shops near you</p>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="search-section">
+                    <div class="search-box">
+                        <input type="text" id="location-input" placeholder="Enter location or use current location">
+                        <button id="current-location-btn" title="Use current location">
+                            <i class="fas fa-location-arrow"></i>
+                        </button>
+                    </div>
+                    <div class="radius-selector">
+                        <label for="radius">Search Radius:</label>
+                        <select id="radius">
+                            <option value="500">500 meters</option>
+                            <option value="1000" selected>1 km</option>
+                            <option value="2000">2 km</option>
+                            <option value="5000">5 km</option>
+                        </select>
+                    </div>
+                    <button id="find-cafes-btn" class="primary-btn">
+                        <i class="fas fa-search"></i> Find Cafes
+                    </button>
+                    <button id="clear-btn" class="secondary-btn">
+                        <i class="fas fa-times"></i> Clear Results
+                    </button>
+                </div>
+
+                <div class="results-section">
+                    <h2><i class="fas fa-list"></i> Results <span id="results-count">(0)</span></h2>
+                    <div id="cafe-list" class="cafe-list">
+                        <!-- Cafe items will be dynamically added here -->
+                        <div class="no-results">
+                            <i class="fas fa-coffee"></i>
+                            <p>Search for cafes to see results here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-section">
+                <div id="map"></div>
+                <div class="map-controls">
+                    <button id="recenter-map" class="map-control-btn" title="Recenter map">
+                        <i class="fas fa-crosshairs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cafe-details-modal" id="cafe-details">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <div id="cafe-details-content">
+                    <!-- Cafe details will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by Google Places API | Made with <i class="fas fa-heart"></i> for coffee lovers</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
